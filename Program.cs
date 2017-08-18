@@ -11,9 +11,13 @@ namespace ElasticTutorial
             var settings = new ConnectionSettings(local);
             var elastic = new ElasticClient(settings);
 
-            var res = elastic.ClusterHealth();
+            var res = elastic.CreateIndex("my_first_index", descriptor => descriptor
+                .Mappings(mappings => mappings
+                    .Map<BlogPost>(mapper => mapper.AutoMap())));
 
-            Console.WriteLine(res.Status);
+            //var res = elastic.Map<BlogPost>(mapper => mapper.Index("my_first_index").AutoMap());
+
+            Console.WriteLine(res.ApiCall.Success);
             Console.ReadLine();
         }
     }

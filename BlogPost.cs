@@ -12,7 +12,7 @@ namespace ElasticTutorial
 
         public override string ToString()
         {
-            return string.Format("Id: '{0}, Title: '{1}', Body: '{2}'", Id, Title, Body);
+            return string.Format($"Id: {Id}, Title: {Title}, Body: {Body}");
         }
     }
 }
