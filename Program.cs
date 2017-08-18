@@ -13,7 +13,7 @@ namespace ElasticTutorial
 
             var res = elastic.ClusterHealth();
 
-            Console.WriteLine(res.ClusterName);
+            Console.WriteLine(res.Status);
             Console.ReadLine();
         }
     }
